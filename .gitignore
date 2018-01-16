@@ -14,6 +14,7 @@
 .idea
 *.iws
 *.iml
+*.class
 *.ipr
 
 ### NetBeans ###
@@ -23,3 +24,17 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+/resources/Lab1/src/lexer/Lexer.java
+/resources/Lab1/src/frontend/lexer.flex
+/resources/Lab2/src/frontend/parser.beaver
+/resources/Lab2/src/parser/Parser.java
+/resources/Lab3/src/frontend/namecheck.jrag
+/resources/Lab3/src/frontend/names.jrag
+/resources/Lab3/src/frontend/typecheck.jrag
+/resources/Lab3/src/frontend/astutil.jrag
+/resources/Lab3/src/frontend/errors.jrag
+/resources/Lab3/src/frontend/types.jrag
+/resources/Lab3/src/frontend/grammar.ast
+/resources/Lab3/src/frontend/runtime.jrag
+/resources/Lab3/src/ast/*.java
+/working/
