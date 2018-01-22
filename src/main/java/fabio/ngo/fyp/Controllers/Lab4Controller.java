@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicLong;
 
 
@@ -93,9 +92,10 @@ public class Lab4Controller {
     try {
       //create lexerTest file
       File compilerTest = new File(CLONE_SRC_ROOT_DIR+"ast\\CompilerTests.java");
-      String compilerTestContent = new Scanner(compilerTest).useDelimiter("\\Z").next();
+
+      String compilerTestContent = content;
 //      System.out.println(lexerTestContent);
-      compilerTestContent = compilerTestContent.replace("//TestHolder",content);
+//      compilerTestContent = compilerTestContent.replace("//TestHolder",content);
       FileWriter fileWriter = new FileWriter(compilerTest,false);
       fileWriter.write(compilerTestContent);
       fileWriter.close();
@@ -108,7 +108,7 @@ public class Lab4Controller {
     results.add(compilingJavaFiles.compile());
     results.add(runningJavaFiles.run("ast.CompilerTests",CLONE_EXC_ROOT_DIR));
     File dir = new File(WORKING_DIR+"\\"+token);
-    Ultilities.deleteFiles(dir);
+//    Ultilities.deleteFiles(dir);
     return results;
   }
 }

@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicLong;
 
 
@@ -70,9 +69,9 @@ public class Lab3Controller {
     try {
       //create lexerTest file
       File lexerTest = new File(CLONE_SRC_ROOT_DIR+"\\SemanticAnalyserTests.java");
-      String lexerTestContent = new Scanner(lexerTest).useDelimiter("\\Z").next();
+      String lexerTestContent = content;
 //      System.out.println(lexerTestContent);
-      lexerTestContent = lexerTestContent.replace("//TestHolder",content);
+//      lexerTestContent = lexerTestContent.replace("//TestHolder",content);
       FileWriter fileWriter = new FileWriter(lexerTest,false);
       fileWriter.write(lexerTestContent);
       fileWriter.close();
