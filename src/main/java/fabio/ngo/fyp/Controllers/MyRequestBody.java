@@ -6,11 +6,11 @@ public class MyRequestBody {
     this.token = token;
   }
 
-  public void setContent(String[] content) {
+  public void setContent(Object content) {
     this.content = content;
   }
 
-  String[] content;
+  Object content;
   String token;
 
   MyRequestBody() {

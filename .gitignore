@@ -26,7 +26,7 @@ nbdist/
 .nb-gradle/
 /resources/Lab1/src/lexer/Lexer.java
 /resources/Lab1/src/frontend/lexer.flex
-/resources/Lab2/src/frontend/parser.beaver
+/resources/Lab0/src/frontend/parser.beaver
 /resources/Lab2/src/parser/Parser.java
 /resources/Lab3/src/frontend/namecheck.jrag
 /resources/Lab3/src/frontend/names.jrag
