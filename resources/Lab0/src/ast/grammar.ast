@@ -1,0 +1,8 @@
+#GRAMMARS HOLDER#
+
+abstract TypeDescriptor;
+IntType : TypeDescriptor;
+BooleanType : TypeDescriptor;
+VoidType : TypeDescriptor;
+ArrayType : TypeDescriptor ::= ElementType:TypeDescriptor;
+JavaType : TypeDescriptor ::= <Name:String>;

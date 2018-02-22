@@ -19,4 +19,9 @@ public class Ultilities {
       return false;
     }
   }
+//  public static String toUpper1stCharCase(String input){
+//    StringBuilder sb = new StringBuilder(input.toLowerCase());
+//    sb.setCharAt(0, (char) (sb.charAt(0)+'A'-'a'));
+//    return sb.toString();
+//  }
 }

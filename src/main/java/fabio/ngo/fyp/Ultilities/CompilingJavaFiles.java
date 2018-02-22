@@ -6,7 +6,7 @@ public class CompilingJavaFiles extends CommandExecutor {
     String cpArg = "-cp ";
     if(jarFiles.length > 0){
       for(int i=0;i<jarFiles.length;i++) {
-        cpArg += (LIB_ROOT_DIR + jarFiles[i] + ".jar;");
+        cpArg += (LIB_ROOT_DIR+"\\" + jarFiles[i] + ".jar;");
       }
     }
 

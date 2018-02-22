@@ -5,7 +5,7 @@ import java.lang.reflect.Modifier;
 /** Implementation of name lookup. */
 aspect names {
 	// qualified names for modules and import statements
-	syn lazy String Module.getQualifiedName() = getName();
+	syn lazy String Module.getQualifiedName() = getID();
 
 
 

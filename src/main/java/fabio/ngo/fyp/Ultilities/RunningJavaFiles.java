@@ -33,7 +33,7 @@ public class RunningJavaFiles extends CommandExecutor {
       cpArg= "-cp ";
 
       for(int i=0;i<jarFiles.length;i++){
-        cpArg += LIB_ROOT_DIR + jarFiles[i] +".jar;";
+        cpArg += LIB_ROOT_DIR + "\\" + jarFiles[i] +".jar;";
       }
       cpArg += fileDir;
     }else{

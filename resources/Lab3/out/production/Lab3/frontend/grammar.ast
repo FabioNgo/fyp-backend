@@ -1,8 +1,21 @@
 Program ::= Module*;
 
-Module ::= <Name:String> Imports;
-
-Imports ::= Import Imports;
-
-Import ::= <Name:String>;
-
+Imports::=Import Imports ;
+Declarations::=Declaration Declarations ;
+Declaration::=FunctionDeclaration ;
+Public;
+AccessId::=Public ;
+TypeName::=PrimitiveType ;
+Void;
+PrimitiveType::=Void ;
+ParameterList::=Parameter ParameterY ;
+ParameterY::=Parameter ParameterY ;
+Module::=Identifier Imports ;
+Id;
+Identifier::=Id ;
+Import::=Identifier ;
+Parameter::=TypeName Identifier ;
+FunctionDeclaration::=AccessId TypeName Identifier ParameterList Statements ;
+Statement::=ReturnStatement ;
+ReturnStatement;
+Statements::=Statement Statements ;

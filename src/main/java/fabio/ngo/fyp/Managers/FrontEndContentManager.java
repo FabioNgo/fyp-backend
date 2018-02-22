@@ -19,5 +19,8 @@ public class FrontEndContentManager {
 
   public void setFrontEndContentRequest(FrontEndContentRequest frontEndContentRequest) {
     this.frontEndContentRequest = frontEndContentRequest;
+    TerminalsManager.getInstance().setTerminals(frontEndContentRequest.getTerminals());
   }
+
+
 }

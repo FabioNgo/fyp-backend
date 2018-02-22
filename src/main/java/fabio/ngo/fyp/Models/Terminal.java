@@ -1,13 +1,76 @@
 package fabio.ngo.fyp.Models;
 
-import fabio.ngo.fyp.Managers.FrontEndContentManager;
-
 import java.util.ArrayList;
 
 public class Terminal {
-  private String identifier;
-  private String rule;
+  @Override
+  public boolean equals(Object obj) {
+    return obj instanceof Terminal && ((Terminal) obj).getIdentifier().equals(this.getIdentifier());
+  }
+
+  public String getBaseTerminal() {
+    return baseTerminal;
+  }
+
+  public void setBaseTerminal(String baseTerminal) {
+    this.baseTerminal = baseTerminal;
+  }
+
+  public ArrayList<Terminal> getSubTerminals() {
+    return subTerminals;
+  }
+
+  public void setSubTerminals(ArrayList<Terminal> subTerminals) {
+    this.subTerminals = subTerminals;
+  }
+
+  public void addSubTerminal(Terminal terminal) {
+    if (terminal.baseTerminal.equals(this.identifier)) {
+      if (subTerminals.contains(terminal)) {
+      } else {
+        subTerminals.add(terminal);
+      }
+    }
+
+  }
+
+  public void setBeaverRule(String beaverRule) {
+    this.beaverRule = beaverRule;
+  }
+
+  public enum TokenExtendedEnum {
+    Optional,
+    NonEmpty,
+    PossibleEmpty,
+    Undefined
+  }
+
+  private String identifier = "";
+  private String rule = "";
+  private String beaverRule ="";
+  private boolean isStartSymbol;
+  private String baseTerminal ="";
+  private ArrayList<Terminal> subTerminals = new ArrayList<>();
+  private ArrayList<String> semanticTokens = new ArrayList<>();
   private ArrayList<String> semanticActions = new ArrayList<>();
+
+  public void addSemanticToken(String semanticToken) {
+    this.semanticTokens.add(semanticToken);
+  }
+  public void addSemanticAction(String semanticAction) {
+    this.semanticActions.add(semanticAction);
+  }
+  public ArrayList<String> getSemanticTokens() {
+    return semanticTokens;
+  }
+
+  public ArrayList<String> getSemanticActions() {
+    return semanticActions;
+  }
+
+  public void setSemanticTokens(ArrayList<String> semanticTokens) {
+    this.semanticTokens = semanticTokens;
+  }
 
   public String getIdentifier() {
     return identifier;
@@ -20,45 +83,26 @@ public class Terminal {
   public String getRule() {
     return rule;
   }
-
+  public String getBeaverRule(){
+    return this.beaverRule;
+  }
   public void setRule(String rule) {
     this.rule = rule;
   }
 
-  public void addSemanticAction() {
-    ArrayList<Rule> terminals = FrontEndContentManager.getInstance().getFrontEndContentRequest().getRules();
-    ArrayList<String> arguments = new ArrayList<>();
-    String[] tokens = rule.split("[\\s']");
-    tokensloop: for (int i = 0; i < tokens.length; i++) {
-      String token = tokens[i];
-      for (Rule terminal : terminals) {
-        if (terminal.getToken().equals(token) ) {
-          if(terminal.getToken().equals("ID")) {
-            semanticActions.add(String.format("Symbol var%d = _symbols[offset + %d];", i + 1, i + 1));
-            arguments.add(String.format("var%d", i + 1));
 
-          }
-          continue tokensloop;
-        }
-      }
-      semanticActions.add(String.format("%s var%d = (%s)_symbols[offset + %d].value;",token,i+1,token,i+1));
-      arguments.add(String.format("var%d",i+1));
-    }
-    //add return action
-    StringBuilder argumentString = new StringBuilder();
-    if(arguments.size() > 0){
-      for(String argument: arguments){
-        argumentString.append(argument).append(",");
-      }
-      argumentString.deleteCharAt(argumentString.length()-1);
-    }
-    semanticActions.add(String.format("return new %s (%s);",identifier, argumentString.toString()));
+
+
+
+  public boolean isStartSymbol() {
+    return isStartSymbol;
   }
-  public String getSemanticActionString(){
-    StringBuilder result = new StringBuilder();
-    for(String semanticAction: semanticActions){
-      result.append(semanticAction).append("\n");
+
+  public void setIsStartSymbol(String isStartSymbol) {
+    if (isStartSymbol.equals("true")) {
+      this.isStartSymbol = true;
+    } else {
+      this.isStartSymbol = false;
     }
-    return result.toString();
   }
 }
