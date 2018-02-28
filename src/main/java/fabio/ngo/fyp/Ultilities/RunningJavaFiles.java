@@ -6,12 +6,14 @@ public class RunningJavaFiles extends CommandExecutor {
   private String fileName;
   private String[] jarFiles;
   private String JAVA_PATH;
-  public RunningJavaFiles(String SRC_ROOT_DIR, String LIB_ROOT_DIR, String JAVA_PATH,String... jarFiles) {
+  private String[] args;
+  public RunningJavaFiles(String SRC_ROOT_DIR, String LIB_ROOT_DIR, String JAVA_PATH,String[] jarFiles, String ... args) {
     this.type = "Running";
     this.LIB_ROOT_DIR = LIB_ROOT_DIR;
     this.SRC_ROOT_DIR = SRC_ROOT_DIR;
     this.jarFiles = jarFiles;
     this.JAVA_PATH = JAVA_PATH;
+    this.args = args;
   }
 
   @Override
@@ -39,9 +41,15 @@ public class RunningJavaFiles extends CommandExecutor {
     }else{
       cpArg = "-cp "+ fileDir;
     }
-    this.command = new String[]{JAVA_PATH+"java.exe",
+
+    String argsCommand = "";
+    for(String arg: args){
+      argsCommand += (" " + arg);
+    }
+    this.command = new String[]{"\""+JAVA_PATH+"java.exe\"",
       cpArg,
-      this.fileName
+      this.fileName,
+      argsCommand
     };
     return this.exeCommand();
   }

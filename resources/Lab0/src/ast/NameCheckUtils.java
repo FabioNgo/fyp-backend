@@ -144,10 +144,10 @@ public class NameCheckUtils {
         nameCheck(expression);
       }
     }
-    if(nd instanceof FunctionName){
-      if(NamesUtils.decl(nd) == null){
-        Errors.error("Function " + ((FunctionName) nd).getvar0() + " cannot be resolved.",nd);
-      }
-    }
+//    if(nd instanceof FunctionName){
+//      if(NamesUtils.decl(nd) == null){
+//        Errors.error("Function " + ((FunctionName) nd).getvar0() + " cannot be resolved.",nd);
+//      }
+//    }
   }
 }

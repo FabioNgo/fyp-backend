@@ -83,9 +83,9 @@ public class NamesUtils {
       }
       return null;
     }
-    if(nd instanceof FunctionName){
-      return lookupFunction(name,nd.getParent());
-    }
+//    if(nd instanceof FunctionName){
+//      return lookupFunction(name,nd.getParent());
+//    }
     if(nd instanceof FunctionDeclaration){
       return lookupFunction(name,nd.getParent());
     }

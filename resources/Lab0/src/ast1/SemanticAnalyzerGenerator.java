@@ -1,4 +1,4 @@
-package ast;
+package ast1;
 import jastadd.JastAddTask;
 import org.apache.tools.ant.Project;
 import org.apache.tools.ant.taskdefs.Ant;

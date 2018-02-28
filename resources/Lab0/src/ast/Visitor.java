@@ -186,9 +186,9 @@ public class Visitor<A> {
 	public A visitIntLiteral(IntLiteral nd) {
 		return visitLiteral(nd);
 	}
-	public A visitNegativeIntLiteral(NegativeIntLiteral nd) {
-		return visitLiteral(nd);
-	}
+//	public A visitNegativeIntLiteral(NegativeIntLiteral nd) {
+//		return visitLiteral(nd);
+//	}
 	public A visitBooleanLiteral(BooleanLiteral nd) {
 		return visitLiteral(nd);
 	}

@@ -24,7 +24,7 @@ public class GrammarFacade implements Constants {
   private ArrayList<String> outputFileContent;
   public void writeFile(String DES_SOURCE_DIR){
     this.generateFileContent();
-    File grammarFile = new File(DES_SOURCE_DIR + "\\ast\\grammar.ast");
+    File grammarFile = new File(DES_SOURCE_DIR + "\\ast1\\grammar.ast");
     try {
 //      grammarFile.createNewFile();
       FileWriter fileWriter = new FileWriter(grammarFile);
@@ -39,7 +39,7 @@ public class GrammarFacade implements Constants {
 
   public ArrayList<String> generateFileContent (){
     outputFileContent = new ArrayList<>();
-    grammarTemplateFile = new File(RESOURCE_DIR_ROOT_SRC+"\\ast\\grammar.ast");
+    grammarTemplateFile = new File(RESOURCE_DIR_ROOT_SRC+"\\ast1\\grammar.ast");
     try {
       List<String> lines = Files.readAllLines(grammarTemplateFile.toPath());
       for (String line :lines){
